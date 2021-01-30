@@ -31,6 +31,23 @@ router.post('/validation-rule', (req, res) => {
       "data": null
     })
   }
+
+  // if(typeof req.body.data[prop1] !== 'string')  {
+  //   return res.status(400).json({
+  //     "message": `${req.body.rule.field} should be a string.`,
+  //     "status": "error",
+  //     "data": null
+  //   })
+  // }
+
+  // if(!Array.isArray(req.body.data[prop1]))  {
+  //   return res.status(400).json({
+  //     "message": `${req.body.rule.field} should be an array.`,
+  //     "status": "error",
+  //     "data": null
+  //   })
+  // }
+
   
   const reqFieldInData = req.body.rule.field;
   const prop = req.body.rule.field.split('.')
@@ -281,64 +298,6 @@ router.post('/validation-rule', (req, res) => {
       })
     }
   }
-
-  // if(req.body.data.hasOwnProperty(prop1) && !prop2) {
-  //   // console.log('test', reqFieldInData, req.body.data.hasOwnProperty(prop1))
-  //   // (prop2 !== undefined && !req.body.data[prop1].hasOwnProperty(prop2)
-  //   // if(!prop2) {
-  //     // console.log('test', reqFieldInData, req.body.data.hasOwnProperty(prop1))
-  //     return res.status(200).json({
-  //       "message": `field ${reqFieldInData} successfully validated.`,
-  //       "status": "success",
-  //       "data": {
-  //         "validation": {
-  //           "error": false,
-  //           "field": `${req.body.rule.field}`,
-  //           "field_value": `${req.body.data[prop1]}`,
-  //           "condition": `${req.body.rule.condition}`,
-  //           "condition_value": `${req.body.rule.condition_value}`
-  //         },
-  //       }
-  //     })
-  //   // }
-  // }
-
-  // if(typeof req.body.data[prop1] !== 'string')  {
-  //   return res.status(400).json({
-  //     "message": `${req.body.rule.field} should be a string.`,
-  //     "status": "error",
-  //     "data": null
-  //   })
-  // }
-
-  // if(!Array.isArray(req.body.data[prop1]))  {
-  //   return res.status(400).json({
-  //     "message": `${req.body.rule.field} should be an array.`,
-  //     "status": "error",
-  //     "data": null
-  //   })
-  // }
-
-  // g/ If the field specified in the rule object is missing from the data passed, 
-  // your endpoint response (HTTP 400 status code) should be:
-  
-  // if(req.body.data[prop1][prop2]) {
-  //   return res.status(200).json({
-  //     "message": `field ${reqFieldInData} successfully validated.`,
-  //     "status": "success",
-  //     "data": {
-  //       "validation": {
-  //         "error": false,
-  //         "field": `${req.body.rule.field}`,
-  //         "field_value": `${req.body.data[prop1]}`,
-  //         "condition": `${req.body.rule.condition}`,
-  //         "condition_value": `${req.body.rule.condition_value}`
-  //       },
-  //     }
-  //   })
-  // }
-
-  res.send('all good')
 });
 
 module.exports = router;
